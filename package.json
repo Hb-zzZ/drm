@@ -1,0 +1,26 @@
+{
+  "name": "drm",
+  "version": "1.0.0",
+  "description": "drm can help you switch [npm or yarn] registries.",
+  "bin": {
+    "drm": "./bin/drm"
+  },
+  "homepage": "https://github.com/Hb-zzZ/drm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hb-zzZ/drm.git"
+  },
+  "keywords": [
+    "npm",
+    "yarn",
+    "registry manager"
+  ],
+  "author": "Hb-zzZ <Hb-email@foxmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^3.2.0",
+    "commander": "^6.2.1",
+    "ini": "^2.0.0",
+    "request": "^2.88.2"
+  }
+}
