@@ -1,6 +1,6 @@
 {
   "name": "ptm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ptm can help you switch [npm or yarn] registries.",
   "scripts": {
     "release": "standard-version"
