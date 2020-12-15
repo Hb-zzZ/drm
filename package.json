@@ -2,6 +2,9 @@
   "name": "drm",
   "version": "1.0.0",
   "description": "drm can help you switch [npm or yarn] registries.",
+  "scripts": {
+    "release": "standard-version"
+  },
   "bin": {
     "drm": "./bin/drm"
   },
@@ -21,6 +24,7 @@
     "async": "^3.2.0",
     "commander": "^6.2.1",
     "ini": "^2.0.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "standard-version": "^9.0.0"
   }
 }
