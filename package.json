@@ -1,17 +1,17 @@
 {
-  "name": "drm",
+  "name": "urm",
   "version": "1.0.0",
-  "description": "drm can help you switch [npm or yarn] registries.",
+  "description": "urm can help you switch [npm or yarn] registries.",
   "scripts": {
     "release": "standard-version"
   },
   "bin": {
-    "drm": "./bin/drm"
+    "urm": "./bin/urm"
   },
-  "homepage": "https://github.com/Hb-zzZ/drm",
+  "homepage": "https://github.com/Hb-zzZ/urm",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Hb-zzZ/drm.git"
+    "url": "https://github.com/Hb-zzZ/urm.git"
   },
   "keywords": [
     "npm",
