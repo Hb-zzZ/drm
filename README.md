@@ -1,11 +1,11 @@
-# dwm
+# ptm
 
-`dwm` can help you switch [`npm` or `yarn`] registries.
+`ptm` can help you switch [`npm` or `yarn`] registries.
 
 ## Usage
 
 ```
-    Usage: dwm [options] [command]
+    Usage: ptm [options] [command]
 
     Options:
     -V, --version          output the version number
