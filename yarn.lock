@@ -1665,8 +1665,8 @@ sshpk@^1.7.0:
 
 standard-version@^9.0.0:
   version "9.0.0"
-  resolved "https://registry.npmjs.org/standard-version/-/standard-version-9.0.0.tgz#814055add91eec8679a773768927f927183fc818"
-  integrity sha512-eRR04IscMP3xW9MJTykwz13HFNYs8jS33AGuDiBKgfo5YrO0qX0Nxb4rjupVwT5HDYL/aR+MBEVLjlmVFmFEDQ==
+  resolved "https://registry.npm.taobao.org/standard-version/download/standard-version-9.0.0.tgz#814055add91eec8679a773768927f927183fc818"
+  integrity sha1-gUBVrdke7IZ5p3N2iSf5Jxg/yBg=
   dependencies:
     chalk "^2.4.2"
     conventional-changelog "3.1.23"
