@@ -1,11 +1,11 @@
-# urm
+# dwm
 
-`urm` can help you switch [`npm` or `yarn`] registries.
+`dwm` can help you switch [`npm` or `yarn`] registries.
 
 ## Usage
 
 ```
-    Usage: urm [options] [command]
+    Usage: dwm [options] [command]
 
     Options:
     -V, --version          output the version number
