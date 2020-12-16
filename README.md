@@ -90,3 +90,7 @@ $ yarn global add ptm
 ## LICENSE
 
 MIT
+
+## ChangeLog
+
+[ChangeLog](./CHANGELOG.md)
