@@ -13,9 +13,11 @@ function useRegistry(name, type) {
     if (type) {
       switch (type) {
         case 'yarn':
+        case 'Y':
           shells.push(`${Yarn.set} ${registry}`)
           break
         case 'npm':
+        case 'N':
           shells.push(`${Npm.set} ${registry}`)
           break
       }

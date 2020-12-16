@@ -26,10 +26,17 @@ $ yarn global add ptm
 ```
 
 ```
-    ptm use cnpm yarn  // yarn switch registry to cnpm
+    ptm use cnpm yarn|Y  // yarn switch registry to cnpm
 
   Y cnpm --- http://r.cnpmjs.org/
   N taobao --- https://registry.npm.taobao.org/
+
+```
+
+```
+    ptm use cnpm npm|N  // npm switch registry to cnpm
+
+  * cnpm --- http://r.cnpmjs.org/
 
 ```
 
