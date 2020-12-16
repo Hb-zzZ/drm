@@ -17,7 +17,8 @@ function delRegistry(name) {
     // when deleting the registry being used
     if (delRegistry === Yarn) {
       useRegistry('yarn', 'yarn')
-    } else if (delRegistry === Npm) {
+    }
+    if (delRegistry === Npm) {
       useRegistry('npm', 'npm')
     }
 
