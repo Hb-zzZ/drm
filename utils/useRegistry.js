@@ -1,52 +1,46 @@
-const { getAllRegistries } = require('./registriesLib.js')
+const {
+  getAllRegistries,
+  getAllManagers,
+  toManagers,
+} = require('./registriesLib.js')
 const listRegistries = require('../utils/listRegistries.js')
-const { execCmd, getTip, printMsg } = require('./tools.js')
-const { Yarn, Npm } = require('../static/config.js')
+const { execCmd, getTip, printMsg, stringRender } = require('./tools.js')
 
-function useRegistry(name, type) {
+module.exports = (name, manager) => {
   const allRegistries = getAllRegistries()
 
   if (allRegistries.hasOwnProperty(name)) {
     const { registry } = allRegistries[name]
-    let shells = []
+    const allManagers = getAllManagers()
+    let managersList = []
 
-    if (type) {
-      switch (type) {
-        case 'yarn':
-        case 'Y':
-          shells.push(`${Yarn.set} ${registry}`)
-          break
-        case 'npm':
-        case 'N':
-          shells.push(`${Npm.set} ${registry}`)
-          break
-      }
+    if (!manager) {
+      managersList = Object.keys(allManagers)
     } else {
-      shells = [`${Yarn.set} ${registry}`, `${Npm.set} ${registry}`]
+      managersList = toManagers(manager)
     }
 
-    if (shells.length > 0) {
-      execCmd(shells, (results) => {
-        const errResult = results
-          .filter((result) => result.error)
-          .map((result) => result.stderr)
+    const shells = managersList.map((sign) =>
+      stringRender(allManagers[sign].set, { registry })
+    )
+    execCmd(shells, (results) => {
+      const errResult = results.filter((result) => result.error)
 
-        if (errResult.length === 2) {
-          printMsg(results)
-        } else {
-          if (errResult.length > 0) {
-            printMsg(results)
+      if (errResult.length === shells.length) {
+        printMsg(errResult.map((result) => result.stderr))
+      } else {
+        listRegistries(
+          ({ name: showName, prefix, registry: showRegistry, managers }) => {
+            if (managersList.some((sign) => managers.includes(sign))) {
+              return `${prefix}${showName} --- ${showRegistry}`
+            } else {
+              return null
+            }
           }
-
-          listRegistries(false)
-        }
-      })
-    } else {
-      printMsg(getTip('notFoundType', { type }))
-    }
+        )
+      }
+    })
   } else {
     printMsg(getTip('notFound', { name }))
   }
 }
-
-module.exports = useRegistry

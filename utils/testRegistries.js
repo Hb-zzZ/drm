@@ -3,9 +3,9 @@ const request = require('request')
 
 const listRegistries = require('../utils/listRegistries.js')
 const { getAllRegistries } = require('./registriesLib.js')
-const { getTip, printMsg } = require('./tools.js')
+const { getTip } = require('./tools.js')
 
-function testRegistries(name) {
+module.exports = (name) => {
   const allRegistries = getAllRegistries()
 
   let toTest
@@ -41,7 +41,7 @@ function testRegistries(name) {
         return obj
       }, {})
 
-      listRegistries(true, ({ name, prefix }) => {
+      listRegistries(({ name, prefix }) => {
         if (Object.keys(resultsObj).includes(name)) {
           const result = resultsObj[name]
           const suffix = result.error ? 'Fetch Error' : result.time + 'ms'
@@ -54,5 +54,3 @@ function testRegistries(name) {
     }
   )
 }
-
-module.exports = testRegistries

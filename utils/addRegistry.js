@@ -5,22 +5,26 @@ const {
   getUniformRegistry,
   validateRegistry,
 } = require('./tools.js')
-const { getUserRegistries, writeRegistryToUser } = require('./registriesLib.js')
+const {
+  getAllRegistries,
+  getUserRegistries,
+  writeRegistryToUser,
+} = require('./registriesLib.js')
 
-function addRegistry(name, registry) {
+module.exports = (name, registry) => {
+  const allRegistries = getAllRegistries()
   const userRegistries = getUserRegistries()
 
-  if (userRegistries.hasOwnProperty(name)) {
+  if (allRegistries.hasOwnProperty(name)) {
     // already existed
     printMsg(getTip('hasRegistry', { name }))
   } else if (!validateRegistry(registry)) {
     // incorrect format
     printMsg(getTip('registryRule'))
   } else {
-    const config = {
+    userRegistries[name] = {
       registry: getUniformRegistry(registry),
     }
-    userRegistries[name] = config
 
     writeRegistryToUser(userRegistries, (err) => {
       if (err) {
@@ -31,5 +35,3 @@ function addRegistry(name, registry) {
     })
   }
 }
-
-module.exports = addRegistry

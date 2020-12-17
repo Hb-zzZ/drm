@@ -18,7 +18,7 @@ cmd
   .action(() => listRegistries())
 
 cmd
-  .command('use <name> [type]')
+  .command('use <name> [manager]')
   .description('Change registry to target registry')
   .action(useRegistry)
 

@@ -2,29 +2,68 @@ const fs = require('fs')
 const path = require('path')
 const os = require('os')
 const ini = require('ini')
-// user-defined path
+// user-defined config path
 const HOME = os.homedir()
 const DRMRC = path.join(HOME, '.drmrc')
 
+const config = require('../static/config.js')
 const registries = require('../static/registries.json')
 
-// get user-defined registries
-function getUserRegistries() {
+const { exitCmd, getTip } = require('./tools.js')
+
+// get user-defined config
+function getUserConfig() {
   return (
-    (fs.existsSync(DRMRC) && {
-      ...ini.parse(fs.readFileSync(DRMRC, 'utf-8')),
-    }) ||
-    {}
+    (fs.existsSync(DRMRC) && ini.parse(fs.readFileSync(DRMRC, 'utf-8'))) || {}
   )
 }
 
-// get all registries(user and registries.json)
+function getUserRegistries() {
+  const { registries = {} } = getUserConfig()
+
+  return { ...registries }
+}
+
 function getAllRegistries() {
   return { ...registries, ...getUserRegistries() }
 }
 
+function getAllManagers() {
+  return config.managers
+}
+
+function getAllShorthandMap() {
+  return config.shorthandMap
+}
+
+function toManagers(data) {
+  if (!Array.isArray(data)) {
+    data = [data]
+  }
+
+  const allManagers = getAllManagers()
+  const allShorthandMap = getAllShorthandMap()
+
+  const getSign = (key) => {
+    if (Object.keys(allManagers).includes(key)) {
+      return key
+    } else if (Object.keys(allShorthandMap).includes(key)) {
+      return allShorthandMap[key]
+    } else {
+      exitCmd(getTip('notFoundManager', { manager: key }))
+      return null
+    }
+  }
+
+  return data.map((key) => getSign(key))
+}
+
 // write user-defined registry
-function writeRegistryToUser(config, cbk) {
+function writeRegistryToUser(registries, cbk) {
+  const config = getUserConfig()
+
+  config['registries'] = registries
+
   fs.writeFile(DRMRC, ini.stringify(config), cbk)
 }
 
@@ -32,4 +71,7 @@ module.exports = {
   getUserRegistries,
   getAllRegistries,
   writeRegistryToUser,
+  getAllManagers,
+  getAllShorthandMap,
+  toManagers,
 }

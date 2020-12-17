@@ -15,50 +15,47 @@ $ yarn global add ptm
 ## Example
 
 ```
-    ptm ls
+        ptm ls
 
-    // N for npm, Y for yarn
-    npm --- https://registry.npmjs.org/
-    cnpm --- http://r.cnpmjs.org/
-  N taobao --- https://registry.npm.taobao.org/
-  Y yarn --- https://registry.yarnpkg.com/
-
-```
-
-```
-    ptm use cnpm yarn|Y  // yarn switch registry to cnpm
-
-  Y cnpm --- http://r.cnpmjs.org/
-  N taobao --- https://registry.npm.taobao.org/
+        npm --- https://registry.npmjs.org/
+        cnpm --- http://r.cnpmjs.org/
+  [npm] taobao --- https://registry.npm.taobao.org/
+ [yarn] yarn --- https://registry.yarnpkg.com/
 
 ```
 
 ```
-    ptm use cnpm npm|N  // npm switch registry to cnpm
+        ptm use cnpm yarn|Y  // yarn switch registry to cnpm
 
-  * cnpm --- http://r.cnpmjs.org/
-
-```
-
-```
-    ptm use taobao  // both switch registry to taobao
-
-  // * for both
-  * taobao --- https://registry.npm.taobao.org/
+ [yarn] cnpm --- http://r.cnpmjs.org/
 
 ```
 
 ```
-    ptm add private http://127.0.0.1:8888
+            ptm use cnpm npm|N  // npm switch registry to cnpm
 
-    You have added private successfully!
+ [yarn,npm] cnpm --- http://r.cnpmjs.org/
+
+```
+
+```
+            ptm use taobao  // both switch registry to taobao
+
+ [yarn,npm] taobao --- https://registry.npm.taobao.org/
 
 ```
 
 ```
-    ptm del private
+        ptm add private http://127.0.0.1:8888
 
-    You have deleted private successfully!
+        You have added private successfully!
+
+```
+
+```
+        ptm del private
+
+        You have deleted private successfully!
 
 ```
 
@@ -68,16 +65,16 @@ $ yarn global add ptm
     Usage: ptm [options] [command]
 
     Options:
-    -V, --version          output the version number
-    -h, --help             display help for command
+      -V, --version          output the version number
+      -h, --help             display help for command
 
     Commands:
-    list|ls                List all the registries
-    use <name> [type]      Change registry to target registry
-    add <name> <registry>  Add new custom registry
-    del <name>             Delete the custom registry
-    test [name]            Show response time for specific or all registries
-    help                   Print out for help
+      list|ls                List all the registries
+      use <name> [manager]   Change registry to target registry
+      add <name> <registry>  Add new custom registry
+      del <name>             Delete the custom registry
+      test [name]            Show response time for specific or all registries
+      help                   Print out for help
 ```
 
 ## Registries
@@ -94,3 +91,7 @@ MIT
 ## ChangeLog
 
 [ChangeLog](./CHANGELOG.md)
+
+## TODO
+
+add custom package managers...

@@ -1,22 +1,35 @@
-const { Yarn, Npm } = require('../static/config.js')
-const { execCmd, exitCmd, printMsg, getUniformRegistry } = require('./tools.js')
+const { getAllManagers, toManagers } = require('./registriesLib.js')
+const { execCmd, exitCmd } = require('./tools.js')
 
-function getCurrentRegistries(cb) {
-  execCmd([Yarn.get, Npm.get], ([YarnResult, NpmResult]) => {
+module.exports = (cb, manager) => {
+  const allManagers = getAllManagers()
+  let managersList = []
+
+  if (!manager) {
+    managersList = Object.keys(allManagers)
+  } else {
+    managersList = toManagers(manager)
+  }
+
+  const getRegistriesCmd = managersList.map((sign) => allManagers[sign].get)
+
+  execCmd(getRegistriesCmd, (results) => {
     // error handle
-    if (YarnResult.error && NpmResult.error) {
-      return exitCmd([stderrN, stderrY])
-    } else if (YarnResult.error) {
-      printMsg(YarnResult.stderr)
-    } else if (NpmResult.error) {
-      printMsg(NpmResult.stderr)
+    const errResults = results.filter((result) => result.error)
+    if (errResults.length === getRegistriesCmd.length) {
+      return exitCmd(errResults.map((err) => err.stderr))
     }
 
-    cb({
-      Yarn: getUniformRegistry(YarnResult.stdout),
-      Npm: getUniformRegistry(NpmResult.stdout),
-    })
+    cb(
+      managersList.reduce((registries, sign, index) => {
+        const result = results[index]
+
+        if (!result.error) {
+          registries[sign] = result.stdout
+        }
+
+        return registries
+      }, {})
+    )
   })
 }
-
-module.exports = getCurrentRegistries
