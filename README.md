@@ -2,7 +2,7 @@
 
 `ptm` can help you switch [`npm`,`yarn` or `custom manager`] registries.
 
-[![npm](https://img.shields.io/npm/v/ptm.svg)](https://www.npmjs.com/package/ptm)![GitHub repo size](https://img.shields.io/github/repo-size/Hb-zzZ/ptm)![GitHub top language](https://img.shields.io/github/languages/top/Hb-zzZ/ptm)![NPM](https://img.shields.io/npm/l/ptm)
+[![npm](https://img.shields.io/npm/v/ptm.svg)](https://www.npmjs.com/package/ptm) ![GitHub repo size](https://img.shields.io/github/repo-size/Hb-zzZ/ptm) ![GitHub top language](https://img.shields.io/github/languages/top/Hb-zzZ/ptm) ![NPM](https://img.shields.io/npm/l/ptm)
 
 ## Install
 
