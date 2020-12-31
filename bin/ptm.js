@@ -8,6 +8,8 @@ const useRegistry = require('../utils/useRegistry')
 const addRegistry = require('../utils/addRegistry')
 const delRegistry = require('../utils/delRegistry')
 const testRegistries = require('../utils/testRegistries')
+const addManager = require('../utils/addManager')
+const delManager = require('../utils/delManager')
 
 cmd.version(PKG.version)
 
@@ -36,6 +38,18 @@ cmd
   .command('test [name]')
   .description('Show response time for specific or all registries')
   .action(testRegistries)
+
+cmd
+  .command(
+    'add-manager <manager> <getRegistry> <setRegistry> [defaultRegistry] [shorthand]'
+  )
+  .description('Add new custom manager')
+  .action(addManager)
+
+cmd
+  .command('del-manager <manager>')
+  .description('Delete the custom manager')
+  .action(delManager)
 
 cmd
   .command('help')

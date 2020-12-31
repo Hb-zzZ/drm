@@ -6,4 +6,10 @@ module.exports = {
   delRegistry: 'You have deleted {{name}} successfully!',
   addRegistry: 'You have added {{name}} successfully!',
   customRegistry: 'You can only delete custom registry!',
+  hasManager: 'You have added {{name}} manager!',
+  addManager: 'You have added {{name}} manager successfully!',
+  hasShorthand: 'You have added {{name}} shorthand!',
+  notFoundDefaultRegistry: 'Not find default registry: {{name}}',
+  customManager: 'You can only delete custom manager!',
+  delManager: 'You have deleted {{name}} manager successfully!',
 }

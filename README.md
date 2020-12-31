@@ -1,8 +1,8 @@
 # ptm
 
-`ptm` can help you switch [`npm` or `yarn`] registries.
+`ptm` can help you switch [`npm`,`yarn` or `custom manager`] registries.
 
-[![npm](https://img.shields.io/npm/v/ptm.svg)](https://www.npmjs.com/package/ptm)
+[![npm](https://img.shields.io/npm/v/ptm.svg)](https://www.npmjs.com/package/ptm)![GitHub repo size](https://img.shields.io/github/repo-size/Hb-zzZ/ptm)![GitHub top language](https://img.shields.io/github/languages/top/Hb-zzZ/ptm)![NPM](https://img.shields.io/npm/l/ptm)
 
 ## Install
 
@@ -59,22 +59,49 @@ $ yarn global add ptm
 
 ```
 
+```
+Support in 1.0.5+
+                                                                                  default registry  manager shorthand
+                                                                                                ⏫  ⏫
+        ptm add-manager yarn "yarn config get registry" "yarn config set registry {{registry}}" cnpm Y
+                        ⏬                ⏬                            ⏬
+        the name of the custom manager    ⏬    set registry method( {{registry}} will replace the selected registry)
+                                          ⏬               ⏬
+                                  get registry method      ⏬
+                                                  ⏬       ⏬
+                                                 need to have " "
+
+        You have added yarn manager successfully!
+
+```
+
+```
+Support in 1.0.5+
+
+        ptm del-manager yarn
+
+        You have deleted yarn manager successfully!
+
+```
+
 ## Usage
 
 ```
-    Usage: ptm [options] [command]
+        Usage: ptm [options] [command]
 
-    Options:
-      -V, --version          output the version number
-      -h, --help             display help for command
+        Options:
+        -V, --version                                                                    output the version number
+        -h, --help                                                                       display help for command
 
-    Commands:
-      list|ls                List all the registries
-      use <name> [manager]   Change registry to target registry
-      add <name> <registry>  Add new custom registry
-      del <name>             Delete the custom registry
-      test [name]            Show response time for specific or all registries
-      help                   Print out for help
+        Commands:
+        list|ls                                                                          List all the registries
+        use <name> [manager]                                                             Change registry to target registry
+        add <name> <registry>                                                            Add new custom registry
+        del <name>                                                                       Delete the custom registry
+        test [name]                                                                      Show response time for specific or all registries
+        add-manager <manager> <getRegistry> <setRegistry> [defaultRegistry] [shorthand]  Add new custom manager
+        del-manager <manager>                                                            Delete the custom manager
+        help                                                                             Print out for help
 ```
 
 ## Registries
@@ -91,7 +118,3 @@ MIT
 ## ChangeLog
 
 [ChangeLog](./CHANGELOG.md)
-
-## TODO
-
-add custom package managers...
