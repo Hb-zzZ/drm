@@ -1,7 +1,7 @@
 {
   "name": "ptm",
   "version": "1.0.5",
-  "description": "ptm can help you switch [npm or yarn] registries.",
+  "description": "ptm can help you switch [npm,yarn or custom manager] registries.",
   "scripts": {
     "release": "standard-version"
   },
@@ -16,6 +16,8 @@
   "keywords": [
     "npm",
     "yarn",
+    "registry",
+    "custom manager",
     "registry manager"
   ],
   "author": "Hb-zzZ <Hb-email@foxmail.com>",
