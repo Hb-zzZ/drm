@@ -111,9 +111,17 @@ Support in 1.0.5+
 - [taobao](http://npm.taobao.org)
 - [yarn](https://yarnpkg.com)
 
+## Thanks
+
+If you find this project useful, you can give me a [[star](https://github.com/Hb-zzZ/ptm)].
+
 ## LICENSE
 
 MIT
+
+## Feature
+
+Run faster.
 
 ## ChangeLog
 
