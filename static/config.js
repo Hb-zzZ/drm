@@ -13,7 +13,7 @@ module.exports = {
     pnpm: {
       defaultRegistry: 'npm',
       get: 'pnpm get registry',
-      set: 'pnpm config set {{registry}}',
+      set: 'pnpm config set registry {{registry}}',
     },
   },
   shorthandMap: {

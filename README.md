@@ -17,31 +17,24 @@ $ yarn global add ptm
 ```
         ptm ls
 
-        npm --- https://registry.npmjs.org/
-        cnpm --- http://r.cnpmjs.org/
-  [npm,pnpm] taobao --- https://registry.npm.taobao.org/
- [yarn] yarn --- https://registry.yarnpkg.com/
+        [yarn,npm,pnpm] npm --- https://registry.npmjs.org/
+                        cnpm --- http://r.cnpmjs.org/
+                        taobao --- https://registry.npm.taobao.org/
+                        yarn --- https://registry.yarnpkg.com/
 
 ```
 
 ```
         ptm use cnpm yarn|Y  // yarn switch registry to cnpm
 
- [yarn] cnpm --- http://r.cnpmjs.org/
+        [yarn] cnpm --- http://r.cnpmjs.org/
 
 ```
 
 ```
-            ptm use cnpm npm|N  // npm switch registry to cnpm
+        ptm use taobao  // both switch registry to taobao
 
- [yarn,npm] cnpm --- http://r.cnpmjs.org/
-
-```
-
-```
-            ptm use taobao  // both switch registry to taobao
-
- [yarn,npm,pnpm] taobao --- https://registry.npm.taobao.org/
+        [yarn,npm,pnpm] taobao --- https://registry.npm.taobao.org/
 
 ```
 
