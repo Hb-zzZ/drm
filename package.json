@@ -3,6 +3,7 @@
   "version": "1.0.6",
   "description": "ptm can help you switch [npm,yarn or custom manager] registries.",
   "scripts": {
+    "git:commit": "git cz",
     "release": "standard-version"
   },
   "bin": {
@@ -29,6 +30,13 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
+    "commitizen": "^4.3.0",
+    "gz-cz": "^1.0.3",
     "standard-version": "^9.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/gz-cz"
+    }
   }
 }

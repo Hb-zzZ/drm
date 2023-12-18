@@ -10,9 +10,15 @@ module.exports = {
       get: 'npm config get registry',
       set: 'npm config set registry {{registry}}',
     },
+    pnpm: {
+      defaultRegistry: 'npm',
+      get: 'pnpm get registry',
+      set: 'pnpm config set {{registry}}',
+    },
   },
   shorthandMap: {
     Y: 'yarn',
     N: 'npm',
+    P: 'pnpm',
   },
 }
