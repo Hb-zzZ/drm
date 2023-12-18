@@ -1,6 +1,6 @@
 {
   "name": "ptm",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "ptm can help you switch [npm,yarn,pnpm or custom manager] registries.",
   "scripts": {
     "git:commit": "git cz",
